@@ -1,17 +1,44 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import model.Docente;
+import model.Eletronico;
+import model.RFID;
+import model.UnidadeAcademica;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Docente docente1 = new Docente("Alex");
+        Docente docente2 = new Docente("Felipe");
+        Docente docente3 = new Docente("Rita");
+        Docente docente4 = new Docente("Valquer");
+        Eletronico lampada1 = new Eletronico("lampada central");
+        Eletronico lampada2 = new Eletronico("lampada secundaria");
+        Eletronico arcondicionado = new Eletronico("arcondicionado");
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        RFID rfid = RFID.getRFID();
+        UnidadeAcademica unidadeAcademica = UnidadeAcademica.getUnidadeAcademica();
+
+        unidadeAcademica.addEletronico(lampada1);
+        unidadeAcademica.addEletronico(lampada2);
+        unidadeAcademica.addEletronico(arcondicionado);
+
+        rfid.subscribe(unidadeAcademica);
+
+        docente1.entrar(rfid);
+        System.out.println();
+        docente2.entrar(rfid);
+        System.out.println();
+        docente3.entrar(rfid);
+        System.out.println();
+        docente4.entrar(rfid);
+        System.out.println();
+
+        docente1.sair(rfid);
+        System.out.println();
+        docente2.sair(rfid);
+        System.out.println();
+        docente3.sair(rfid);
+        System.out.println();
+        docente4.sair(rfid);
+
     }
 }
