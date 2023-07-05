@@ -13,12 +13,12 @@ public class Docente {
     }
 
     public void entrar(RFID rfid) {
-        System.out.println("model.Docente " + this.name + " entrou.");
+        System.out.println("Docente " + this.name + " entrou.");
         rfid.notificarEntrada();
     }
 
     public void sair(RFID rfid) {
-        System.out.println("model.Docente " + this.name + " saiu.");
+        System.out.println("Docente " + this.name + " saiu.");
         rfid.notificarSaida();
     }
 
